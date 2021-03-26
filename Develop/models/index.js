@@ -15,6 +15,17 @@ Category.hasMany(Product, {
   onDelete: 'CASCADE',
 });
 
+// // category belongToMany products (through category_id)
+// Category.belongsToMany(Product, {
+//   // Define the table needed to store the foreign keys
+//   through: {
+//     model: category_id,
+//     unique: false
+//   },
+//   // Define an alias for when data is retrieved
+//   as: 'viewCategories_withProductCategoryIds'
+// });
+
 // Products belongToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
   // Define the table needed to store the foreign keys
@@ -23,7 +34,7 @@ Product.belongsToMany(Tag, {
     unique: false
   },
   // Define an alias for when data is retrieved
-  as: 'view_productWithTags'
+  as: 'productWithTags'
 });
 
 // Tags belongToMany Products (through ProductTag)
